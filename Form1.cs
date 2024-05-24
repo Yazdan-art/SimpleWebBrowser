@@ -15,29 +15,20 @@ namespace SimpleWebBrowser
 {
     public partial class Form1 : Form
     {
+        WebBrowser webBrowser;
         public Form1()
         {
             InitializeComponent();
-            //InitializeChromium();
+            newTab_btn.PerformClick(); // Open a new tab by default
         }
-        //private void InitializeChromium()
-        //{
-        //    CefSettings settings = new CefSettings();
-        //    Cef.Initialize(settings);
-        //    chromium = new ChromiumWebBrowser("https://www.google.com");
-        //    this.Controls.Add(chromium);
-        //    chromium.Dock = DockStyle.Fill;
-        //}
-        WebBrowser webBrowser;
+   
         private void webBrowser1_DocumentCompleted(object sender, WebBrowserDocumentCompletedEventArgs e)
         {
-            // Update the address bar with the current URL
             txtAddress.Text = webBrowser.Url.ToString();
         }
 
         private void tabPage1_Click(object sender, EventArgs e)
         {
-            // Switch to the first tab
             tabControl1.SelectedIndex = 0;
         }
 
@@ -56,45 +47,34 @@ namespace SimpleWebBrowser
 
         private void back_btn_Click(object sender, EventArgs e)
         {
-            // Navigate back to the previous page
             webBrowser.GoBack();
         }
 
         private void forward_btn_Click(object sender, EventArgs e)
         {
-            // Navigate forward to the next page
             webBrowser.GoForward();
         }
 
         private void refresh_btn_Click(object sender, EventArgs e)
         {
-            // Refresh the current page
             webBrowser.Refresh();
         }
 
         private void tabPage1_Click_1(object sender, EventArgs e)
         {
-     // Switch to the third tab
             tabControl1.SelectedIndex = 1;
         }
 
         private void newTab_btn_Click(object sender, EventArgs e)
         {
-            webBrowser = new WebBrowser();
-            // Create a new TabPage
             var tabPage = new TabPage();
             tabPage.Text = "New Tab";
-
-            // Add the TabPage to the TabControl
+            webBrowser = new WebBrowser();
             tabControl1.TabPages.Add(tabPage);
-
-            // Add the WebBrowser control to the TabPage
-           
             webBrowser.Dock = DockStyle.Fill;
             tabPage.Controls.Add(webBrowser);
 
-            // Navigate to a URL
-            //webBrowser.Navigate(txtAddress.Text);
+
         }
     }
 }

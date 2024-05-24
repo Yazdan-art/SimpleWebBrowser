@@ -28,10 +28,11 @@ namespace SimpleWebBrowser
         //    this.Controls.Add(chromium);
         //    chromium.Dock = DockStyle.Fill;
         //}
+        WebBrowser webBrowser;
         private void webBrowser1_DocumentCompleted(object sender, WebBrowserDocumentCompletedEventArgs e)
         {
             // Update the address bar with the current URL
-            txtAddress.Text = webBrowser1.Url.ToString();
+            txtAddress.Text = webBrowser.Url.ToString();
         }
 
         private void tabPage1_Click(object sender, EventArgs e)
@@ -47,22 +48,8 @@ namespace SimpleWebBrowser
 
         private void Go_btn_Click(object sender, EventArgs e)
         {
+           
             // Navigate to the URL entered in the TextBox
-            //webBrowser1.Navigate(txtAddress.Text);
-
-            // Create a new TabPage
-            var tabPage = new TabPage();
-            tabPage.Text = "New Tab";
-
-            // Add the TabPage to the TabControl
-            tabControl1.TabPages.Add(tabPage);
-
-            // Add the WebBrowser control to the TabPage
-            var webBrowser = new WebBrowser();
-            webBrowser.Dock = DockStyle.Fill;
-            tabPage.Controls.Add(webBrowser);
-
-            // Navigate to a URL
             webBrowser.Navigate(txtAddress.Text);
 
         }
@@ -70,19 +57,19 @@ namespace SimpleWebBrowser
         private void back_btn_Click(object sender, EventArgs e)
         {
             // Navigate back to the previous page
-            webBrowser1.GoBack();
+            webBrowser.GoBack();
         }
 
         private void forward_btn_Click(object sender, EventArgs e)
         {
             // Navigate forward to the next page
-            webBrowser1.GoForward();
+            webBrowser.GoForward();
         }
 
         private void refresh_btn_Click(object sender, EventArgs e)
         {
             // Refresh the current page
-            webBrowser1.Refresh();
+            webBrowser.Refresh();
         }
 
         private void tabPage1_Click_1(object sender, EventArgs e)
@@ -91,5 +78,23 @@ namespace SimpleWebBrowser
             tabControl1.SelectedIndex = 1;
         }
 
+        private void newTab_btn_Click(object sender, EventArgs e)
+        {
+            webBrowser = new WebBrowser();
+            // Create a new TabPage
+            var tabPage = new TabPage();
+            tabPage.Text = "New Tab";
+
+            // Add the TabPage to the TabControl
+            tabControl1.TabPages.Add(tabPage);
+
+            // Add the WebBrowser control to the TabPage
+           
+            webBrowser.Dock = DockStyle.Fill;
+            tabPage.Controls.Add(webBrowser);
+
+            // Navigate to a URL
+            //webBrowser.Navigate(txtAddress.Text);
+        }
     }
 }

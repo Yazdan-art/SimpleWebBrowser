@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.webBrowser1 = new System.Windows.Forms.WebBrowser();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.txtAddress = new System.Windows.Forms.TextBox();
@@ -36,24 +35,15 @@
             this.back_btn = new System.Windows.Forms.Button();
             this.forward_btn = new System.Windows.Forms.Button();
             this.refresh_btn = new System.Windows.Forms.Button();
+            this.newTab_btn = new System.Windows.Forms.Button();
             this.SuspendLayout();
-            // 
-            // webBrowser1
-            // 
-            this.webBrowser1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.webBrowser1.Location = new System.Drawing.Point(0, 0);
-            this.webBrowser1.MinimumSize = new System.Drawing.Size(20, 20);
-            this.webBrowser1.Name = "webBrowser1";
-            this.webBrowser1.Size = new System.Drawing.Size(1015, 494);
-            this.webBrowser1.TabIndex = 0;
-            this.webBrowser1.DocumentCompleted += new System.Windows.Forms.WebBrowserDocumentCompletedEventHandler(this.webBrowser1_DocumentCompleted);
             // 
             // tabControl1
             // 
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1015, 377);
+            this.tabControl1.Size = new System.Drawing.Size(987, 377);
             this.tabControl1.TabIndex = 1;
             // 
             // txtAddress
@@ -68,11 +58,11 @@
             // Go_btn
             // 
             this.Go_btn.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.Go_btn.Location = new System.Drawing.Point(123, 411);
+            this.Go_btn.Location = new System.Drawing.Point(407, 378);
             this.Go_btn.Name = "Go_btn";
-            this.Go_btn.Size = new System.Drawing.Size(268, 44);
+            this.Go_btn.Size = new System.Drawing.Size(97, 33);
             this.Go_btn.TabIndex = 0;
-            this.Go_btn.Text = "New Tab";
+            this.Go_btn.Text = "Go";
             this.Go_btn.UseVisualStyleBackColor = false;
             this.Go_btn.Click += new System.EventHandler(this.Go_btn_Click);
             // 
@@ -110,18 +100,28 @@
             this.refresh_btn.UseVisualStyleBackColor = true;
             this.refresh_btn.Click += new System.EventHandler(this.refresh_btn_Click);
             // 
+            // newTab_btn
+            // 
+            this.newTab_btn.Location = new System.Drawing.Point(316, 411);
+            this.newTab_btn.Name = "newTab_btn";
+            this.newTab_btn.Size = new System.Drawing.Size(75, 44);
+            this.newTab_btn.TabIndex = 7;
+            this.newTab_btn.Text = "New Tab";
+            this.newTab_btn.UseVisualStyleBackColor = true;
+            this.newTab_btn.Click += new System.EventHandler(this.newTab_btn_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1015, 494);
+            this.Controls.Add(this.newTab_btn);
             this.Controls.Add(this.refresh_btn);
             this.Controls.Add(this.forward_btn);
             this.Controls.Add(this.back_btn);
             this.Controls.Add(this.Go_btn);
             this.Controls.Add(this.txtAddress);
             this.Controls.Add(this.tabControl1);
-            this.Controls.Add(this.webBrowser1);
             this.Name = "Form1";
             this.Text = "Form1";
             this.ResumeLayout(false);
@@ -130,8 +130,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.WebBrowser webBrowser1;
         private System.Windows.Forms.TabControl tabControl1;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.Windows.Forms.TextBox txtAddress;
@@ -139,6 +137,7 @@
         private System.Windows.Forms.Button back_btn;
         private System.Windows.Forms.Button forward_btn;
         private System.Windows.Forms.Button refresh_btn;
+        private System.Windows.Forms.Button newTab_btn;
     }
 }
 
